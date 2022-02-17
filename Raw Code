@@ -1,6 +1,9 @@
 import random
 
 play_game = True
+computer_score = 0
+player_score = 0
+
 while play_game:
 
     user_action = input("Enter a choice (rock, paper, scissors): ").lower()
@@ -13,21 +16,28 @@ while play_game:
     elif user_action == "rock":
         if computer_action == "scissors":
             print("Rock smashes scissors! You win!")
+            player_score = player_score + 1
         else:
             print("Paper covers rock! You lose.")
+            computer_score = computer_score + 1
     elif user_action == "paper":
         if computer_action == "rock":
             print("Paper covers rock! You win!")
+            player_score = player_score + 1
         else:
             print("Scissors cuts paper! You lose.")
+            computer_score = computer_score + 1
     elif user_action == "scissors":
         if computer_action == "paper":
             print("Scissors cuts paper! You win!")
+            player_score = player_score + 1
         else:
             print("Rock smashes scissors! You lose.")
+            computer_score = computer_score + 1
 
-    play_again = input ("Would you like to play again Yes or No?").lower()
+    play_again = input(
+        f"\nCurrent Score Player {player_score} : Computer {computer_score} :\n" "Would you like to play again Yes or No?").lower()
     if play_again == "yes":
-            play_game = True
+        play_game = True
     elif play_again == "no":
-            exit()
+        exit()
